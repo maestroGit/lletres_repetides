@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasca 2</title>
+</head>
+
+<body>
+    <script>
+
+        //Exercici 1
+        let names = ['j', 'a', 'v', 'i', 'e', 'r'];
+        for (i = 0; i < names.length; i++) {
+            console.log(names[i]);
+        }
+
+        // Exercici 2
+        let name = ['j', 'a', 'v', 'v', 'e', 'r'];
+        for (i = 0; i < name.length; i++) {
+            if (isNaN(name[i])) {
+                if (name[i] == 'a' || name[i] == 'e' || name[i] == 'i' || name[i] == 'o' || name[i] == 'u') {
+                    console.log('He trobat la vocal: ' + name[i])
+                } else {
+                    console.log('he trobat la consonat: ' + name[i]);
+                }
+            } else {
+                console.log('Els names de persones no contenen el número: ' + name[i]);
+            }
+        }
+
+
+        //Exercici 3
+        //Emmagatzemar en un Map les lletres de l'array y el namebre de vegades que apareixen.
+        //metodo.map()
+        let lletresArray = name.map(lettersRepeticions);
+        // Array con letras en cada posición
+        function lettersRepeticions(name) {
+            let count = {};
+            for (let letter of name) {
+                console.log(letter);
+                if (letter in count) {
+                    //if (name.includes(letter)) {
+                    ++count[letter];
+                } else {
+                    count[letter] = 1;
+                }
+
+            }
+            return count;
+            //console.log(count);
+        }
+        //lettersRepeticions(name);
+        console.log(lletresArray);
+
+        // objeto map
+        const myMap = new Map();
+        myMap.forEach(letter => {
+            if (myMap.has(letter)) {
+                let letterCount = myMap.get(letter);
+                myMap.set(letter, letterCount + 1);
+            } else {
+                myMap.set(letter, 1);
+            }
+        })
+        console.log(myMap);
+
+        // bucles anidados - se obtiene el resultado pero creo que no era la forma
+        
+        let repetida = 0;
+        var arr = [];
+        var objeto = {};
+        for (x = 0; x < name.length; x++) {
+            repetida = 0;
+            for (y = 0; y < name.length; y++) {
+                if (name[x] == name[y]){
+                    repetida++;
+                }
+            }
+            console.log(name[x] + "" + repetida);
+            var clave = name[x];
+            arr.push({ key: clave, value: repetida });
+            objeto[clave] = repetida;
+        }
+        console.log(arr);
+        console.log(objeto);
+
+        //Exercici 4
+        let surname = ['m', 'a', 'e', 's', 't', 'r', 'o'];
+        let fullName = name.concat((''), surname);
+        console.log(fullName);
+
+        // Nivell 2
+        // funció que retorni un array amb tots els email (sense repetir) del següent text:
+        // expresiones regulares
+        let texto = 'Una dirección de correo electrónico es la dirección que utiliza para recibir y enviar correos electrónicos. Se muestra a los destinatarios de sus correos electrónicos para que sepan quién le envió un correo electrónico. Cada dirección de correo electrónico sólo se puede asignar una vez en todo el mundo y, por lo tanto, está disponible exclusivamente para usted. No puede cambiar las direcciones de correo electrónico, pero puede eliminarlas en cualquier momento. Una dirección de correo electrónico consiste en el signo @ (arroba), el namebre de usuario delante y el dominio detrás, por ejemplo, namebre-de-usuario@ionos.es: La parte del dominio depende del dominio bajo el cual se crea la dirección de correo electrónico: en nuestro ejemplo es ionos.es. Esta información varía de proveedor a proveedor, por lo que una parte del dominio también puede ser gmail.com o gmx.es si utiliza una dirección de correo electrónico de estos proveedores. Si ha registrado su propio dominio, por ejemplo, www.el-namebre-de-sus-sueños.es, las direcciones de correo electrónico que configura para el dominio lo tienen como parte del dominio (namebre-de-usuario@el-namebre-de-sus-sueños.es o namebre-de-usuario@el-namebre-de-sus-sueños.ES). El namebre de usuario es la parte de una dirección de correo electrónico que puede seleccionar libremente en la medida de lo posible. Puede, por ejemplo, utilizar su propio namebre o el namebre o departamento de una empresa. Si utiliza una dirección de correo electrónico con un proveedor de correo como gmail.com o gmx.es, es posible que la combinación con la parte del dominio deseada ya esté registrada. En este caso, deberá considerar alternativas para el namebre de usuario de su dirección de correo electrónico. Si utiliza su propio dominio, estas restricciones no se aplican porque sólo usted puede crear direcciones de correo electrónico que coincidan con su propio dominio. En resumen, namebre-de-usuario@ionos.es es un email';
+
+    </script>
+
+</body>
+
+</html>
