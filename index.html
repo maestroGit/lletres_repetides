@@ -56,7 +56,7 @@
 
         // objeto map
         const myMap = new Map();
-        myMap.forEach(letter => {
+        name.forEach(letter => {
             if (myMap.has(letter)) {
                 let letterCount = myMap.get(letter);
                 myMap.set(letter, letterCount + 1);
@@ -66,8 +66,16 @@
         })
         console.log(myMap);
 
+        /* 
+        // versión compacta del compañero Juan Carlos
+        let lletres = new Map();
+        name.forEach((chr) => {
+            lletres.has(chr) ? lletres.set(chr, lletres.get(chr)+1) : lletres.set(chr, 1);
+        });
+        */
+
         // bucles anidados - se obtiene el resultado pero creo que no era la forma
-        
+
         let repetida = 0;
         var arr = [];
         var objeto = {};
